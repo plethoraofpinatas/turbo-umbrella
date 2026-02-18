@@ -6,8 +6,8 @@ on:
   pull_request_target:
     types: [opened, closed, synchronize]
 permissions:
-  actions: write
-  contents: write
+  actions: read
+  contents: read
   pull-requests: write
   statuses: write
 jobs:
@@ -30,8 +30,8 @@ jobs:
           custom-pr-sign-comment: 'I have hereby read the El Jefe CLA and agree to its terms'
           custom-allsigned-prcomment: '🔥🔥🔥 All required contributors have signed the El Jefe CLA for this PR. Thank you! 🔥🔥🔥'
           # Remote repository storing CLA signatures.
-          #remote-organization-name: El Jefe
-          #remote-repository-name: El Jefe-cla-data
+          remote-organization-name: plethoraofpinatas
+          remote-repository-name: cla-signatures
           # Branch where CLA signatures are stored.
           branch: main
           path-to-signatures: signatures/signatures.json
@@ -42,4 +42,4 @@ jobs:
           lock-pullrequest-aftermerge: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          #PERSONAL_ACCESS_TOKEN: ${{ secrets.El Jefe_CLA_TOKEN }}
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.EL_JEFE_CLA_TOKEN }}
